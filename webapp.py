@@ -31,10 +31,10 @@ def renderQuestion2():
     session["answer1"]=request.form['a1']
     return render_template('question2.html')
 
-@app.route('/question3',methods=['GET','POST'], s1=get_s1(), s2=get_s2())
+@app.route('/question3',methods=['GET','POST'])
 def renderQuestion3():
     session["answer2"]=request.form['a2']
-    return render_template('question3.html')
+    return render_template('question3.html', s1=get_s1(), s2=get_s2())
   
 def get_s1():
   if session["answer1"] == "32":
