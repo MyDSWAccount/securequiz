@@ -34,7 +34,7 @@ def renderQuestion2():
 @app.route('/question3',methods=['GET','POST'])
 def renderQuestion3():
     session["answer2"]=request.form['a2']
-    return render_template('question3.html', s1=get_s1(), s2=get_s2())
+    return render_template('question3.html', s1=get_s1(), s2=get_s2(), tsc=get_total())
   
 def get_s1():
   score = ""
@@ -51,6 +51,16 @@ def get_s2():
   else:
     score2 = "0 out of 1"
   return score2
+
+def get_total():
+  tot_score = ""
+  if session["answer1"] == 32 and session["answer2"] == 0:
+    tot_score = "2 out of 2"
+  elif session["answer1"] != 32 and session["answer2"] != 0:
+    tot_score = "0 out of 2"
+  else:
+    tot_score = "1 out of 2"
+  return tot_score
 
 if __name__=="__main__":
     app.run(debug=False)
