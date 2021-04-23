@@ -31,10 +31,20 @@ def renderQuestion2():
     session["answer1"]=request.form['a1']
     return render_template('question2.html')
 
-@app.route('/question3',methods=['GET','POST'])
+@app.route('/question3',methods=['GET','POST'], s1=get_s1(), s2=get_s2())
 def renderQuestion3():
     session["answer2"]=request.form['a2']
     return render_template('question3.html')
+  
+def get_s1():
+  if session["answer1"] == "32":
+      s1 = "1 out of 1"
+  s1 = "0 out of 1"
+  
+def get_s2():
+  if session["answer2"] == "0":
+      s1 = "1 out of 1"
+  s1 = "0 out of 1"
     
 if __name__=="__main__":
     app.run(debug=False)
