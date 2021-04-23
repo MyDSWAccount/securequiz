@@ -39,14 +39,12 @@ def renderQuestion3():
 def get_s1():
   if session["answer1"] == "32":
     s1 = "1 out of 1"
-  else:
-    s1 = "0 out of 1"
+  s1 = "0 out of 1"
   
 def get_s2():
   if session["answer2"] == "0":
     s1 = "1 out of 1"
-  else:
-    s1 = "0 out of 1"
+  s1 = "0 out of 1"
 
 if __name__=="__main__":
     app.run(debug=False)
