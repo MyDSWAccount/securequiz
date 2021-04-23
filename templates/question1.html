@@ -3,10 +3,10 @@
 {% block title %}Question 1{% endblock %}
 
 {% block content %}
-  <h1>Question 1: 10 * 5 - 20 + 2 = __</h1>
+  <h1>Question 1:</h1>
 
  <form action={{ url_for("renderQuestion2") }} method="POST">
-  Answer:<br>
+  10 * 5 - 20 + 2 = __:<br>
   <input type="text" name="a1">
   <br>
   <input type="submit" value="Submit">
