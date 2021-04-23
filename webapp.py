@@ -37,14 +37,18 @@ def renderQuestion3():
     return render_template('question3.html', s1=get_s1(), s2=get_s2())
   
 def get_s1():
+  score = ""
   if session["answer1"] == "32":
-    s1 = "1 out of 1"
-  s1 = "0 out of 1"
+    score = "1 out of 1"
+  score = "0 out of 1"
+  return score
   
 def get_s2():
+  score2 = ""
   if session["answer2"] == "0":
-    s1 = "1 out of 1"
-  s1 = "0 out of 1"
+    score2 = "1 out of 1"
+  score2 = "0 out of 1"
+  return score2
 
 if __name__=="__main__":
     app.run(debug=False)
