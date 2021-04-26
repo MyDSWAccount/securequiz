@@ -27,6 +27,8 @@ def retakeQuiz():
     answered1 = False
     global answered2
     answered2 = False
+    global count
+    count = 0
     return redirect(url_for('renderMain')) # url_for('renderMain') could be replaced with '/'
 
 @app.route('/question1')
