@@ -43,6 +43,7 @@ def get_s1():
   score = ""
   if session["answer1"] == "32":
     score = "1 out of 1"
+    global count
     count = count + 1
   else:
     score = "0 out of 1"
@@ -52,12 +53,14 @@ def get_s2():
   score2 = ""
   if session["answer2"] == "0":
     score2 = "1 out of 1"
+    global count
     count = count + 1
   else:
     score2 = "0 out of 1"
   return score2
 
 def get_total():
+  global count
   tot_score = str(count) + " out of 2"
   return tot_score
 
