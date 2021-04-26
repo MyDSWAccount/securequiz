@@ -13,8 +13,6 @@ app.secret_key=os.environ["SECRET_KEY"]; #This is an environment variable.
                                      #The value should be set in Heroku (Settings->Config Vars).  
                                      #To run locally, set in env.sh and include that file in gitignore so the secret key is not made public.
 count = 0
-session["answer1"] = ""
-session["answer2"] = ""
 
 @app.route('/')
 def renderMain():
