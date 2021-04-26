@@ -23,6 +23,10 @@ def renderMain():
 @app.route('/retakeQuiz')
 def retakeQuiz():
     session.clear() #clears variable values and creates a new session
+    global answered1
+    answered1 = False
+    global answered2
+    answered2 = False
     return redirect(url_for('renderMain')) # url_for('renderMain') could be replaced with '/'
 
 @app.route('/question1')
