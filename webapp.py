@@ -43,9 +43,11 @@ def renderQuestion3():
   
 def get_s1():
   score = ""
+  global count
+  if count != 0:
+    count = 0
   if session["answer1"] == "32":
     score = "1 out of 1"
-    global count
     count = count + 1
   else:
     score = "0 out of 1"
