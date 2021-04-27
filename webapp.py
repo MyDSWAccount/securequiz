@@ -72,6 +72,7 @@ def get_total():
 
 def get_best():
   global count
+  global p_best
   if count > p_best:
     p_best = count
   return p_best
