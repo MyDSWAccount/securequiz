@@ -37,18 +37,14 @@ def renderQuetion1():
 
 @app.route('/question2',methods=['GET','POST'])
 def renderQuestion2():
-  global answered1
-  if answered1 == False:
+  if "answer1" != session.keys():
     session["answer1"]=request.form['a1']
-    answered1 = True
   return render_template('question2.html')
 
 @app.route('/question3',methods=['GET','POST'])
 def renderQuestion3():
-  global answered2
-  if answered2 == False:
+  if "answer2" != session.keys():
     session["answer2"]=request.form['a2']
-    answered2 = True
   return render_template('question3.html', s1=get_s1(), s2=get_s2(), tsc=get_total())
   
 def get_s1():
