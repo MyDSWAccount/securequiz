@@ -63,6 +63,7 @@ def get_s1():
   
 def get_s2():
   score2 = ""
+  print(session)
   if session["answer2"] == "0":
     score2 = "1 out of 1"
     global count
