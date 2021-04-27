@@ -46,7 +46,7 @@ def renderQuestion3():
 def renderAnswers():
   if "answer3" not in session:
     session["answer3"]=request.form['a3']
-  return render_template('answers.html', s1=get_s1(), s2=get_s2(), tsc=get_total(), bst=get_best())
+  return render_template('answers.html', s1=get_s1(), s2=get_s2(), s3=get_s3(), tsc=get_total(), bst=get_best())
   
 def get_s1():
   score = ""
@@ -62,7 +62,6 @@ def get_s1():
   
 def get_s2():
   score2 = ""
-  print(session)
   if session["answer2"] == "0":
     score2 = "1 out of 1"
     global count
@@ -71,9 +70,19 @@ def get_s2():
     score2 = "0 out of 1"
   return score2
 
+def get_s3():
+  score3 = ""
+  if session["answer3"] == "24":
+    score3 = "1 out of 1"
+    global count
+    count = count + 1
+  else:
+    score3 = "0 out of 1"
+  return score3
+
 def get_total():
   global count
-  tot_score = str(count) + " out of 2"
+  tot_score = str(count) + " out of 3"
   return tot_score
 
 def get_best():
