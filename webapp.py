@@ -40,7 +40,13 @@ def renderQuestion2():
 def renderQuestion3():
   if "answer2" not in session:
     session["answer2"]=request.form['a2']
-  return render_template('question3.html', s1=get_s1(), s2=get_s2(), tsc=get_total(), bst=get_best())
+  return render_template('question3.html')
+
+@app.route('/answers',methods=['GET','POST'])
+def renderAnswers():
+  if "answer3" not in session:
+    session["answer3"]=request.form['a3']
+  return render_template('answers.html', s1=get_s1(), s2=get_s2(), tsc=get_total(), bst=get_best())
   
 def get_s1():
   score = ""
