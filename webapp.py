@@ -13,8 +13,6 @@ app.secret_key=os.environ["SECRET_KEY"]; #This is an environment variable.
                                      #The value should be set in Heroku (Settings->Config Vars).  
                                      #To run locally, set in env.sh and include that file in gitignore so the secret key is not made public.
 count = 0
-answered1 = False
-answered2 = False
 
 @app.route('/')
 def renderMain():
@@ -23,10 +21,6 @@ def renderMain():
 @app.route('/retakeQuiz')
 def retakeQuiz():
     session.clear() #clears variable values and creates a new session
-    global answered1
-    answered1 = False
-    global answered2
-    answered2 = False
     global count
     count = 0
     return redirect(url_for('renderMain')) # url_for('renderMain') could be replaced with '/'
@@ -37,13 +31,13 @@ def renderQuetion1():
 
 @app.route('/question2',methods=['GET','POST'])
 def renderQuestion2():
-  if "answer1" != session.keys():
-    session["answer1"]=request.form['a1']
+  if "answer1" not in session:
+    session["answer1"]=request.form['a1']  
   return render_template('question2.html')
 
 @app.route('/question3',methods=['GET','POST'])
 def renderQuestion3():
-  if "answer2" != session.keys():
+  if "answer2" not in session:
     session["answer2"]=request.form['a2']
   return render_template('question3.html', s1=get_s1(), s2=get_s2(), tsc=get_total())
   
