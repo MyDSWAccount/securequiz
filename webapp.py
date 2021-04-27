@@ -13,6 +13,7 @@ app.secret_key=os.environ["SECRET_KEY"]; #This is an environment variable.
                                      #The value should be set in Heroku (Settings->Config Vars).  
                                      #To run locally, set in env.sh and include that file in gitignore so the secret key is not made public.
 count = 0
+p_best = 0
 
 @app.route('/')
 def renderMain():
@@ -39,7 +40,7 @@ def renderQuestion2():
 def renderQuestion3():
   if "answer2" not in session:
     session["answer2"]=request.form['a2']
-  return render_template('question3.html', s1=get_s1(), s2=get_s2(), tsc=get_total())
+  return render_template('question3.html', s1=get_s1(), s2=get_s2(), tsc=get_total(), bst=get_best())
   
 def get_s1():
   score = ""
@@ -68,6 +69,12 @@ def get_total():
   global count
   tot_score = str(count) + " out of 2"
   return tot_score
+
+def get_best():
+  global count
+  if count > p_best:
+    p_best = count
+  return p_best
 
 if __name__=="__main__":
     app.run(debug=False)
