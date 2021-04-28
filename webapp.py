@@ -74,7 +74,7 @@ def get_s1():
   
 def get_s2():
   score2 = ""
-  if session["answer2"] == "0":
+  if session["answer2"] == "6":
     score2 = "1 out of 1"
     global count
     count = count + 1
