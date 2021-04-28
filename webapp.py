@@ -42,11 +42,23 @@ def renderQuestion3():
     session["answer2"]=request.form['a2']
   return render_template('question3.html')
 
-@app.route('/answers',methods=['GET','POST'])
-def renderAnswers():
+@app.route('/question4',methods=['GET','POST'])
+def renderQuestion4():
   if "answer3" not in session:
     session["answer3"]=request.form['a3']
-  return render_template('answers.html', s1=get_s1(), s2=get_s2(), s3=get_s3(), tsc=get_total(), bst=get_best())
+  return render_template('question4.html')
+
+@app.route('/question5',methods=['GET','POST'])
+def renderQuestion5():
+  if "answer4" not in session:
+    session["answer4"]=request.form['a4']
+  return render_template('question5.html')
+
+@app.route('/answers',methods=['GET','POST'])
+def renderAnswers():
+  if "answer5" not in session:
+    session["answer5"]=request.form['a5']
+  return render_template('answers.html', s1=get_s1(), s2=get_s2(), s3=get_s3(), s4=get_s4(), s5=get_s5(), tsc=get_total(), bst=get_best())
   
 def get_s1():
   score = ""
@@ -80,9 +92,29 @@ def get_s3():
     score3 = "0 out of 1"
   return score3
 
+def get_s4():
+  score4 = ""
+  if session["answer4"] == "24":
+    score4 = "1 out of 1"
+    global count
+    count = count + 1
+  else:
+    score4 = "0 out of 1"
+  return score4
+
+def get_s5():
+  score5 = ""
+  if session["answer5"] == "0":
+    score5 = "1 out of 1"
+    global count
+    count = count + 1
+  else:
+    score5 = "0 out of 1"
+  return score5
+
 def get_total():
   global count
-  tot_score = str(count) + " out of 3"
+  tot_score = str(count) + " out of 5"
   return tot_score
 
 def get_best():
