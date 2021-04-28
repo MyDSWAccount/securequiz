@@ -94,7 +94,7 @@ def get_s3():
 
 def get_s4():
   score4 = ""
-  if session["answer4"] == "24":
+  if session["answer4"] == "43":
     score4 = "1 out of 1"
     global count
     count = count + 1
